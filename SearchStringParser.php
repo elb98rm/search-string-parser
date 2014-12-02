@@ -98,8 +98,9 @@ class SearchStringParser {
         $array = array();
 
         while (
-            strpos($string, '"') &&
-            strpos($string, '"', strpos($string, '"') + 1 )
+            // 0 is false AND the first position of a string. Urgh!
+            is_int(strpos($string, '"')) &&
+            strpos($string, '"', strpos($string, '"')+1)
         ) {
             $start = strpos($string, '"') + 1;
             $length = strpos($string, '"', strpos($string, '"')+1) - $start;
@@ -130,7 +131,8 @@ class SearchStringParser {
 
         // Does it have any literal strings
         while (
-            strpos($string, '"') &&
+            // 0 is false AND the first position of a string. Urgh!
+            is_int(strpos($string, '"')) &&
             strpos($string, '"', strpos($string, '"')+1)
         ) {
             $start = strpos($string, '"');
@@ -139,12 +141,16 @@ class SearchStringParser {
         }
 
         // Clean the string of excess whitespace
-        $string = preg_replace('/\s+/', ' ', $string);
+        $string = trim(substr_replace($string, ' ', $start, $length));
         $results = explode(' ', $string);
 
-        // and join back to the main
-        if (count($results) > 0) {
-            array_merge($array, $results);
+        // is there any string left...
+        if(strlen($string)) {
+            $results = explode(' ', $string);
+            // and join back to the main
+            if (count($results) > 0) {
+                $array = array_merge($array, $results);
+            }
         }
         return $array;
     }
