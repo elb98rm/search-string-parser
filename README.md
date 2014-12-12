@@ -3,7 +3,7 @@ search-string-parser
 
 # League Skeleton
 
-[![Latest Version](https://img.shields.io/github/search-string-parser.svg?style=plastic)](https://github.com/elb98rm/search-string-parser)
+[![Latest Version](https://img.shields.io/github/release/thephpleague/skeleton.svg?style=plastic)](https://github.com/elb98rm/search-string-parser)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/search-string-parser/master.svg?style=plastic)](https://travis-ci.org/thephpleague/skeleton)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/search-string-parser/skeleton.svg?style=plastic)](https://scrutinizer-ci.com/g/thephpleague/skeleton/code-structure)
