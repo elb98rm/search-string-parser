@@ -1,7 +1,4 @@
-search-string-parser
-====================
-
-# League Skeleton
+# search-string-parser
 
 [![Latest Version](https://img.shields.io/github/release/thephpleague/skeleton.svg?style=plastic)](https://github.com/elb98rm/search-string-parser)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic)](LICENSE.md)
@@ -16,8 +13,8 @@ The long term aim is to release this on https://packagist.org/.
 
 Items left to look at:
 
-1) Completing the software! Currently this is regarded as pre-alpha.
-2) Writing phpunit tests
+1. Completing the software! Currently this is regarded as pre-alpha.
+2. Writing phpunit tests
 
 Currently still under development. :)
 
