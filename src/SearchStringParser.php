@@ -7,7 +7,7 @@
  * php 5.3+
  *
  * @category  None
- * @package   \com\floor9design\utils
+ * @package   League\Floor9design\SearchStringParser
  * @author    Rick Morice <rick@floor9design.com>
  * @copyright floor9design.com
  * @license   GPL 3.0 (http://www.gnu.org/copyleft/gpl.html)
@@ -21,8 +21,7 @@
  *
  */
 
-namespace com\floor9design\utils;
-use com\floor9design\utils;
+namespace League\Floor9design\SearchStringParser;
 
 /**
  * Class SearchStringParser
@@ -32,7 +31,7 @@ use com\floor9design\utils;
  * This is a simple tool to help organise this process
  *
  * @category  None
- * @package   \com\floor9design\utils
+ * @package   League\Floor9design\SearchStringParser\
  * @author    Rick Morice <rick@floor9design.com>
  * @copyright floor9design.com
  * @license   GPL 3.0 (http://www.gnu.org/copyleft/gpl.html)
@@ -44,6 +43,11 @@ use com\floor9design\utils;
 class SearchStringParser {
 
     /**
+     * This function "auto parses" the file.
+     *
+     * It is meant as catch all, and will attempt to make the best
+     * of the data it is given.
+     *
      * This takes a "mixed", auto switching depending on the context.
      * it returns an array of search terms with indexes as follows:
      *
@@ -141,8 +145,7 @@ class SearchStringParser {
         }
 
         // Clean the string of excess whitespace
-        $string = trim(substr_replace($string, ' ', $start, $length));
-        $results = explode(' ', $string);
+        $string = trim(preg_replace('/\s+/', ' ', $string));
 
         // is there any string left...
         if(strlen($string)) {

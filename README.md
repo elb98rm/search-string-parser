@@ -13,13 +13,13 @@ search-string-parser
 A php based parser that will turn a string into an array of search terms for usage in search logic.
 This is in the process of being finished and then extended.
 The long term aim is to release this on https://packagist.org/.
-The release date is estimated to be around xmas/new year 2014/2015.
 
 Items left to look at:
 
-1) Completing the software! Currently this is regarded as pre-alpha... however; it basically works as-is at the moment!
-2) Moving return to be an object
-3) Writing phpunit tests
+1) Completing the software! Currently this is regarded as pre-alpha.
+2) Writing phpunit tests
+
+Currently still under development. :)
 
 This will eventually be PSR-2, PSR-4 compliant. It's probably a long way off right now!
 
