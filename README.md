@@ -16,10 +16,9 @@ The long term aim is to release this on https://packagist.org/.
 
 Items left to look at:
 
-1) Completing the software! Currently this is regarded as pre-alpha.
-2) Writing phpunit tests
-
-Currently still under development. :)
+1) Completing the software! Currently this is regarded as pre-alpha, however it's functional at the moment.
+2) Move the return to be an object instead of an array
+2) Write phpunit tests
 
 This will eventually be PSR-2, PSR-4 compliant. It's probably a long way off right now!
 
@@ -34,8 +33,10 @@ $ composer require league/search-string-parser
 ## Usage
 
 ``` php
-$search-string-parser = new League\SearchStringParser();
-echo $skeleton->echoPhrase('Hello, League!');
+// instantiate
+$ssp = new League\Floor9design\SearchStringParser\SearchStringParser();
+// run a full parse
+$array = $ssp->parse($string);
 ```
 
 ## Testing
