@@ -1,6 +1,6 @@
 {
     "name": "league/search-string-parser",
-    "description": ":A php based parser class for usage in search logic",
+    "description": "A php based parser class for usage in search logic",
     "keywords": [
         "league",
         "package",

@@ -70,7 +70,7 @@ $ phpunit --bootstrap src/SearchStringParser.php tests/SearchStringParserTest.ph
 
 ## Credits
 
-- [:Rick morice](https://github.com/:elb98rm)
+- [Rick morice](https://github.com/elb98rm)
 
 ## License
 
