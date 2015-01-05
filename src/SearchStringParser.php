@@ -11,7 +11,7 @@
  * @author    Rick Morice <rick@floor9design.com>
  * @copyright floor9design.com
  * @license   GPL 3.0 (http://www.gnu.org/copyleft/gpl.html)
- * @version   1.0
+ * @version   0.9
  * @link      http://floor9design.com/
  * @see       http://floor9design.com/
  * @since     File available since Release 1.0
@@ -35,7 +35,7 @@ namespace League\Floor9design\SearchStringParser;
  * @author    Rick Morice <rick@floor9design.com>
  * @copyright floor9design.com
  * @license   GPL 3.0 (http://www.gnu.org/copyleft/gpl.html)
- * @version   1.0
+ * @version   0.9
  * @link      http://floor9design.com/
  * @see       http://floor9design.com/
  * @since     File available since Release 1.0
@@ -66,6 +66,7 @@ class SearchStringParser {
     /**
      * Set the search strings
      * Protected - should only be used internally
+     *
      * @param mixed $search_strings
      * @return League\Floor9design\SearchStringParser $this
      */
@@ -76,18 +77,36 @@ class SearchStringParser {
     }
 
     /**
+     * get Return Strings
+     * @return mixed $this->return_strings
+     */
+    public function getReturnStrings()
+    {
+        return $this->return_strings;
+    }
+
+    /**
+     * Set the search strings
+     * Protected - should only be used internally
+     *
+     * @param mixed $return_strings
+     * @return League\Floor9design\SearchStringParser $this
+     */
+    protected function setReturnStrings($return_strings)
+    {
+        $this->return_strings = $return_strings;
+        return $this;
+    }
+
+    /**
      * This function "auto parses" the file.
      *
      * It is meant as catch all, and will attempt to make the best
      * of the data it is given.
      *
      * This takes a "mixed", auto switching depending on the context.
-     * it returns an array of search terms with indexes as follows:
+     * Accepts: string, multi-dimensional array, int, float
      *
-     * "original" == original term (optional = set false by default)
-     * [number items] == the various search terms
-     *
-     * @todo expand this to tackle more than strings
      * @todo create a returned status code key/value that gives accurate information
      *
      * @param mixed $mixed    item to parse
@@ -99,20 +118,31 @@ class SearchStringParser {
         $this->setSearchStrings($mixed);
 
         $return = array();
-        // Currently this is work in progress, so only look at the case of strings:
-        if (!is_string($mixed)) {
-            $return = false;
+
+        // Parse $mixed
+        if (is_string($mixed)) {
+            // string
+            $string = $mixed;
+        } elseif(is_array($mixed)) {
+            // array:
+            $string = $this->recursiveArrayImplode($mixed);
+        } elseif (
+            is_int($mixed) ||
+            is_float($mixed)
+        ) {
+            $string = (string)$mixed;
         }
-        // cleaning function will eventually return $string
-        $string = $mixed;
+        else {
+            return false;
+        }
 
         // string cleaning functions
         $literals = $this->extractLiterals($string);
         $terms = $this->splitTerms($string);
 
-        $return = array_merge($return, $literals, $terms);
+        $this->setReturnStrings(array_merge($return, $literals, $terms));
 
-        return $return;
+        return $this->getReturnStrings();
     }
 
     /**
@@ -125,7 +155,7 @@ class SearchStringParser {
      * @param string $string string of items to parse
      * @return array $array parsed search items
      */
-    private function extractLiterals($string)
+    protected function extractLiterals($string)
     {
         $array = array();
 
@@ -157,7 +187,7 @@ class SearchStringParser {
      * @return array $array parsed search items
 
      */
-    private function splitTerms($string)
+    protected function splitTerms($string)
     {
         $array = array();
 
@@ -184,6 +214,25 @@ class SearchStringParser {
             }
         }
         return $array;
+    }
+
+    /**
+     * Converts a multidimensional array to an imploded string
+     *
+     * @param array $array Multidimensional array to implode
+     * @param string $glue Glue to implode with together
+     * @return string Converted string
+     */
+    protected function recursiveArrayImplode($array, $glue = ' ') {
+        $return = '';
+        foreach($array as $item) {
+            if(is_array($item)) {
+                $return .= $glue . $this->recursiveArrayImplode($item);
+            } else {
+                $return .= $glue . $item;
+            }
+        }
+        return trim($return);
     }
 
 } 

@@ -13,9 +13,9 @@ It is to be released on https://packagist.org/.
 
 Items left to look at:
 
-1) Implement mixed input work
-2) Update README, implement phpdocs etc. 
-3) Move from alpha to a beta (finalise reliable project structure for public beta release) 
+1) Update README, implement phpdocs etc. 
+
+2) Move from alpha to a beta (finalise reliable project structure for public beta release) 
 
 This will eventually be PSR-2, PSR-4 compliant. It's probably a long way off right now!
 
@@ -33,13 +33,14 @@ $ composer require league/search-string-parser
 // instantiate
 $ssp = new League\Floor9design\SearchStringParser\SearchStringParser();
 // run a full parse
+$string = 'some search terms "including literals enclosed in quotes"';
 $array = $ssp->parse($string);
 ```
 
 ## Testing
 
 ``` bash
-$ phpunit
+$ phpunit --bootstrap src/SearchStringParser.php tests/SearchStringParserTest.php
 ```
 
 ## Credits
