@@ -2,4 +2,7 @@
 .idea
 atlassian-ide-plugin.xml
 
+# Testing files
+build/*
+
 !.gitkeep

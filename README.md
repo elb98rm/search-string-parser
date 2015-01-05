@@ -1,7 +1,4 @@
-search-string-parser
-====================
-
-# League Skeleton
+# search-string-parser
 
 [![Latest Version](https://img.shields.io/github/release/elb98rm/search-string-parser.svg?style=plastic)](https://github.com/elb98rm/search-string-parser/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic)](LICENSE.md)

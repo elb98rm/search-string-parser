@@ -43,6 +43,39 @@ namespace League\Floor9design\SearchStringParser;
 class SearchStringParser {
 
     /**
+     * @var mixed $search_strings Items submitted to parse.
+     */
+    protected $search_strings;
+
+    /**
+     * @var array $return_strings Array of items returned
+     */
+    protected $return_strings;
+
+    // Accessors
+
+    /**
+     * get Search Strings
+     * @return mixed $this->search_strings
+     */
+    public function getSearchStrings()
+    {
+        return $this->search_strings;
+    }
+
+    /**
+     * Set the search strings
+     * Protected - should only be used internally
+     * @param mixed $search_strings
+     * @return League\Floor9design\SearchStringParser $this
+     */
+    protected function setSearchStrings($search_strings)
+    {
+        $this->search_strings = $search_strings;
+        return $this;
+    }
+
+    /**
      * This function "auto parses" the file.
      *
      * It is meant as catch all, and will attempt to make the best
@@ -58,19 +91,14 @@ class SearchStringParser {
      * @todo create a returned status code key/value that gives accurate information
      *
      * @param mixed $mixed    item to parse
-     * @param bool  $original include the original mixed as an array element
      *
      * @return array $return
      */
-    public function parse($mixed, $original=false)
+    public function parse($mixed)
     {
+        $this->setSearchStrings($mixed);
+
         $return = array();
-
-        // add original $mixed to return if specified
-        if ($original) {
-           $return['original'] = $mixed;
-        }
-
         // Currently this is work in progress, so only look at the case of strings:
         if (!is_string($mixed)) {
             $return = false;
