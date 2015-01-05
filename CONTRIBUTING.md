@@ -25,7 +25,7 @@ We accept contributions via Pull Requests on [Github](https://github.com/thephpl
 ## Running Tests
 
 ``` bash
-$ phpunit
+$ phpunit --bootstrap src/SearchStringParser.php tests/SearchStringParserTest.php
 ```
 
 

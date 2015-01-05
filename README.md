@@ -8,16 +8,15 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/league/search-string-parser.svg?style=plastic)](https://packagist.org/packages/league/search-string-parser)
 
 A php based parser that will turn a string into an array of search terms for usage in search logic.
-This is in the process of being finished and then extended.
+This software is currently in a beta release: 0.9
+
 It is to be released on https://packagist.org/.
 
 Items left to look at:
 
-1) Update README, implement phpdocs etc. 
+* Finalise reliable project structure for versioned public release 
 
-2) Move from alpha to a beta (finalise reliable project structure for public beta release) 
-
-This will eventually be PSR-2, PSR-4 compliant. It's probably a long way off right now!
+This should be PSR-2, PSR-4 compliant, but as it's a beta there may be some problems.
 
 ## Install
 
@@ -36,6 +35,32 @@ $ssp = new League\Floor9design\SearchStringParser\SearchStringParser();
 $string = 'some search terms "including literals enclosed in quotes"';
 $array = $ssp->parse($string);
 ```
+
+Your search string can include a combination of the following items: 
+
+* strings - eg: hello world
+* literal string - eg: "hello world"
+* int - eg: 1
+* float - eg: -14.54
+* array
+* multi-dimensional array
+
+These are all parsed internally to form an array ready for you to use as you see fit!
+
+For example - in Zend Framework you may need to set up a set of search terms:
+ 
+ ``` php
+ // we are in the middle of the code, and the object has already been instantiated as above:
+  $string = 'some input text "including literals enclosed in quotes"';
+ $array = $ssp->parse($string);
+  // ... I'll now skip to the relevant part of zend - I assume you can write a query:
+  foreach($array as $keyword) {
+    $select->orWhere('data_table LIKE ?', "%$keyword%")
+ }
+ ```
+
+Obviously, this is just a push in the right direction, though similar things can be done in almost all 
+frameworks (as well as in raw SQL).
 
 ## Testing
 
