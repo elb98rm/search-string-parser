@@ -1,5 +1,5 @@
 {
-    "name": "league/:search-string-parser",
+    "name": "league/search-string-parser",
     "description": ":A php based parser class for usage in search logic",
     "keywords": [
         "league",
