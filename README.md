@@ -9,13 +9,13 @@
 
 A php based parser that will turn a string into an array of search terms for usage in search logic.
 This is in the process of being finished and then extended.
-The long term aim is to release this on https://packagist.org/.
+It is to be released on https://packagist.org/.
 
 Items left to look at:
 
-1) Completing the software! Currently this is regarded as pre-alpha, however it's functional at the moment.
-2) Move the return to be an object instead of an array
-2) Write phpunit tests
+1) Implement mixed input work
+2) Update README, implement phpdocs etc. 
+3) Move from alpha to a beta (finalise reliable project structure for public beta release) 
 
 This will eventually be PSR-2, PSR-4 compliant. It's probably a long way off right now!
 
