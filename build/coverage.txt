@@ -1,0 +1,12 @@
+
+
+Code Coverage Report:     
+  2015-01-05 16:04:03     
+                          
+ Summary:                 
+  Classes: 100.00% (1/1)  
+  Methods: 100.00% (8/8)  
+  Lines:   100.00% (57/57)
+
+\League\Floor9design\SearchStringParser::SearchStringParser
+  Methods: 100.00% ( 8/ 8)   Lines: 100.00% ( 57/ 57)

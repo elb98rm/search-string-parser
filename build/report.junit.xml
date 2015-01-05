@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" tests="13" assertions="13" failures="0" errors="0" time="0.075007">
+    <testcase name="testAccessors" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="60" assertions="1" time="0.012001"/>
+    <testcase name="testParseStringSingleWord" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="77" assertions="1" time="0.004001"/>
+    <testcase name="testParseStringMultiWord" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="94" assertions="1" time="0.005000"/>
+    <testcase name="testParseArraySingleWord" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="114" assertions="1" time="0.005001"/>
+    <testcase name="testParseIntSingle" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="137" assertions="1" time="0.004000"/>
+    <testcase name="testParseFloatMulti" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="154" assertions="1" time="0.005000"/>
+    <testcase name="testParseStringLiteral" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="177" assertions="1" time="0.004001"/>
+    <testcase name="testParseStringNotLiteral" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="196" assertions="1" time="0.005000"/>
+    <testcase name="testParseStringComplex" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="215" assertions="1" time="0.006001"/>
+    <testcase name="testParseMultiDimensionalArraySingle" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="234" assertions="1" time="0.006001"/>
+    <testcase name="testBadTypeObject" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="260" assertions="1" time="0.005000"/>
+    <testcase name="testBadTypeBool" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="277" assertions="1" time="0.004000"/>
+    <testcase name="testParseComplexComplex" class="SearchStringParserTest" file="C:\wip\#utils\search-string-parser\tests\SearchStringParserTest.php" line="293" assertions="1" time="0.010001"/>
+  </testsuite>
+</testsuites>

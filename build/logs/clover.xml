@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1420470243">
+  <project timestamp="1420470243">
+    <package name="League\Floor9design\SearchStringParser">
+      <file name="C:\wip\#utils\search-string-parser\src/SearchStringParser.php">
+        <class name="SearchStringParser" namespace="League\Floor9design\SearchStringParser" fullPackage="League" category="None" package="League">
+          <metrics methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="57" elements="65" coveredelements="65"/>
+        </class>
+        <line num="61" type="method" name="getSearchStrings" crap="1" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="73" type="method" name="setSearchStrings" crap="1" count="13"/>
+        <line num="75" type="stmt" count="13"/>
+        <line num="76" type="stmt" count="13"/>
+        <line num="83" type="method" name="getReturnStrings" crap="1" count="11"/>
+        <line num="85" type="stmt" count="11"/>
+        <line num="95" type="method" name="setReturnStrings" crap="1" count="11"/>
+        <line num="97" type="stmt" count="11"/>
+        <line num="98" type="stmt" count="11"/>
+        <line num="116" type="method" name="parse" crap="5" count="13"/>
+        <line num="118" type="stmt" count="13"/>
+        <line num="120" type="stmt" count="13"/>
+        <line num="123" type="stmt" count="13"/>
+        <line num="125" type="stmt" count="6"/>
+        <line num="126" type="stmt" count="13"/>
+        <line num="128" type="stmt" count="4"/>
+        <line num="129" type="stmt" count="4"/>
+        <line num="130" type="stmt" count="3"/>
+        <line num="131" type="stmt" count="2"/>
+        <line num="132" type="stmt" count="3"/>
+        <line num="133" type="stmt" count="1"/>
+        <line num="134" type="stmt" count="1"/>
+        <line num="136" type="stmt" count="2"/>
+        <line num="140" type="stmt" count="11"/>
+        <line num="141" type="stmt" count="11"/>
+        <line num="143" type="stmt" count="11"/>
+        <line num="145" type="stmt" count="11"/>
+        <line num="158" type="method" name="extractLiterals" crap="3" count="11"/>
+        <line num="160" type="stmt" count="11"/>
+        <line num="164" type="stmt" count="11"/>
+        <line num="165" type="stmt" count="4"/>
+        <line num="166" type="stmt" count="11"/>
+        <line num="167" type="stmt" count="3"/>
+        <line num="168" type="stmt" count="3"/>
+        <line num="171" type="stmt" count="3"/>
+        <line num="172" type="stmt" count="3"/>
+        <line num="173" type="stmt" count="3"/>
+        <line num="175" type="stmt" count="11"/>
+        <line num="190" type="method" name="splitTerms" crap="5" count="11"/>
+        <line num="192" type="stmt" count="11"/>
+        <line num="197" type="stmt" count="11"/>
+        <line num="198" type="stmt" count="4"/>
+        <line num="199" type="stmt" count="11"/>
+        <line num="200" type="stmt" count="3"/>
+        <line num="201" type="stmt" count="3"/>
+        <line num="202" type="stmt" count="3"/>
+        <line num="203" type="stmt" count="3"/>
+        <line num="206" type="stmt" count="11"/>
+        <line num="209" type="stmt" count="11"/>
+        <line num="210" type="stmt" count="10"/>
+        <line num="212" type="stmt" count="10"/>
+        <line num="213" type="stmt" count="10"/>
+        <line num="214" type="stmt" count="10"/>
+        <line num="215" type="stmt" count="10"/>
+        <line num="216" type="stmt" count="11"/>
+        <line num="226" type="method" name="recursiveArrayImplode" crap="3" count="4"/>
+        <line num="227" type="stmt" count="4"/>
+        <line num="228" type="stmt" count="4"/>
+        <line num="229" type="stmt" count="4"/>
+        <line num="230" type="stmt" count="1"/>
+        <line num="231" type="stmt" count="1"/>
+        <line num="232" type="stmt" count="4"/>
+        <line num="234" type="stmt" count="4"/>
+        <line num="235" type="stmt" count="4"/>
+        <metrics loc="237" ncloc="103" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="57" elements="65" coveredelements="65"/>
+      </file>
+    </package>
+    <metrics files="1" loc="237" ncloc="103" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="57" elements="65" coveredelements="65"/>
+  </project>
+</coverage>
