@@ -1,17 +1,18 @@
 {
     "name": "league/search-string-parser",
-    "description": "A php based parser class for usage in search logic",
+    "description": "A php based parser class for use in search logic.",
     "keywords": [
         "league",
         "package",
         "search",
+        "string",
         "parser"
     ],
     "homepage": "https://github.com/elb98rm/search-string-parser",
     "license": "GNU GENERAL",
     "authors": [
         {
-            "name": ":Rick Morice",
+            "name": "Rick Morice",
             "email": "rick@floor9design.com",
             "homepage": "http://floor9design.com",
             "role": "Developer"
