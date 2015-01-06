@@ -1,15 +1,16 @@
 TAP version 13
 ok 1 - SearchStringParserTest::testAccessors
-ok 2 - SearchStringParserTest::testParseStringSingleWord
-ok 3 - SearchStringParserTest::testParseStringMultiWord
-ok 4 - SearchStringParserTest::testParseArraySingleWord
-ok 5 - SearchStringParserTest::testParseIntSingle
-ok 6 - SearchStringParserTest::testParseFloatMulti
-ok 7 - SearchStringParserTest::testParseStringLiteral
-ok 8 - SearchStringParserTest::testParseStringNotLiteral
-ok 9 - SearchStringParserTest::testParseStringComplex
-ok 10 - SearchStringParserTest::testParseMultiDimensionalArraySingle
-ok 11 - SearchStringParserTest::testBadTypeObject
-ok 12 - SearchStringParserTest::testBadTypeBool
-ok 13 - SearchStringParserTest::testParseComplexComplex
-1..13
+ok 2 - SearchStringParserTest::testDelimiterException
+ok 3 - SearchStringParserTest::testParseStringSingleWord
+ok 4 - SearchStringParserTest::testParseStringMultiWord
+ok 5 - SearchStringParserTest::testParseArraySingleWord
+ok 6 - SearchStringParserTest::testParseIntSingle
+ok 7 - SearchStringParserTest::testParseFloatMulti
+ok 8 - SearchStringParserTest::testParseStringLiteral
+ok 9 - SearchStringParserTest::testParseStringNotLiteral
+ok 10 - SearchStringParserTest::testParseStringComplex
+ok 11 - SearchStringParserTest::testParseMultiDimensionalArraySingle
+ok 12 - SearchStringParserTest::testSearchExceptionObject
+ok 13 - SearchStringParserTest::testSearchExceptionBool
+ok 14 - SearchStringParserTest::testParseComplexComplex
+1..14

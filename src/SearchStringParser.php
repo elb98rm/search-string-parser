@@ -52,6 +52,11 @@ class SearchStringParser {
      */
     protected $return_strings;
 
+    /**
+     * @var array $delimiter Delimiter to mark boundaries of literals
+     */
+    protected $delimiter;
+
     // Accessors
 
     /**
@@ -99,6 +104,42 @@ class SearchStringParser {
     }
 
     /**
+     * get delimiter to use while parsing strings
+     * @return string $this->delimiter
+     */
+    public function getDelimiter()
+    {
+        return $this->delimiter;
+    }
+
+    /**
+     * Set the delimiter to use while parsing strings
+     *
+     * @param string $delimiter
+     * @return League\Floor9design\SearchStringParser $this
+     */
+    public function setDelimiter($delimiter)
+    {
+        if (is_string($delimiter)) {
+            $this->delimiter = $delimiter;
+            return $this;
+        } else {
+            throw new \Exception('Attempted to set a delimiter that was not a string.');
+        }
+    }
+
+    // Constructor
+
+    /**
+     * @param string $delimiter Delimiter to use within the search object.
+     */
+    public function __construct($delimiter = '"') {
+        $this->setDelimiter($delimiter);
+    }
+
+    // Other functions
+
+    /**
      * This function "auto parses" the file.
      *
      * It is meant as catch all, and will attempt to make the best
@@ -133,6 +174,7 @@ class SearchStringParser {
             $string = (string)$mixed;
         }
         else {
+            throw new \Exception('Attempted to parse a bad data type.');
             return false;
         }
 
@@ -161,11 +203,11 @@ class SearchStringParser {
 
         while (
             // 0 is false AND the first position of a string. Urgh!
-            is_int(strpos($string, '"')) &&
-            strpos($string, '"', strpos($string, '"')+1)
+            is_int(strpos($string, $this->getDelimiter())) &&
+            strpos($string, $this->getDelimiter(), strpos($string, $this->getDelimiter())+1)
         ) {
-            $start = strpos($string, '"') + 1;
-            $length = strpos($string, '"', strpos($string, '"')+1) - $start;
+            $start = strpos($string, $this->getDelimiter()) + 1;
+            $length = strpos($string, $this->getDelimiter(), strpos($string, $this->getDelimiter())+1) - $start;
 
             // add it to the array
             $array[] = substr($string, $start, $length);
@@ -194,11 +236,11 @@ class SearchStringParser {
         // Does it have any literal strings
         while (
             // 0 is false AND the first position of a string. Urgh!
-            is_int(strpos($string, '"')) &&
-            strpos($string, '"', strpos($string, '"')+1)
+            is_int(strpos($string, $this->getDelimiter())) &&
+            strpos($string, $this->getDelimiter(), strpos($string, $this->getDelimiter())+1)
         ) {
-            $start = strpos($string, '"');
-            $length = strpos($string, '"', strpos($string, '"')+1) - $start +1;
+            $start = strpos($string, $this->getDelimiter());
+            $length = strpos($string, $this->getDelimiter(), strpos($string, $this->getDelimiter())+1) - $start +1;
             $string = substr_replace($string, ' ', $start, $length);
         }
 

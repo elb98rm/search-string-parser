@@ -60,14 +60,35 @@ class SearchStringParserTest extends PHPUnit_Framework_TestCase {
     public function testAccessors()
     {
         // Arrange
+
+        // Covers get/set string vars
         $test_string = 'hello';
         $this->ssp->parse($test_string);
 
+        // covers delimiter
+        $test_delimiter = 'P';
+
         // Act
-        $test_result = $this->ssp->getSearchStrings();
+        $result_string = $this->ssp->getSearchStrings();
+
+        $this->ssp->setDelimiter($test_delimiter);
+        $result_delimiter = $this->ssp->getDelimiter();
 
         // Assert
-        $this->assertEquals($test_string, $test_result);
+        $this->assertEquals($test_string, $result_string);
+        $this->assertEquals($test_delimiter, $result_delimiter);
+    }
+
+    /*
+     * Tests attempting to set a delimiter badly, and checks that a correct exception is thrown.
+     */
+    public function testDelimiterException()
+    {
+        $this->setExpectedException('\Exception', 'Attempted to set a delimiter that was not a string.');
+
+        // invalid data type
+        $test_delimiter = array();
+        $this->ssp->setDelimiter($test_delimiter);
     }
 
     /**
@@ -257,34 +278,28 @@ class SearchStringParserTest extends PHPUnit_Framework_TestCase {
      * Tests parsing a bad type - object
      * Uses a stdClass to simulate a bad type
      */
-    public function testBadTypeObject()
+    public function testSearchExceptionObject()
     {
         // Arrange
         $test_item = new stdClass();
-        $expected_result = false;
+        $this->setExpectedException('\Exception', 'Attempted to parse a bad data type.');
 
         // Act
-        $test_result = $this->ssp->parse($test_item);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
+        $this->ssp->parse($test_item);
     }
 
     /**
      * Tests parsing a bad type - bool
      * Uses a bool to simulate a bad type
      */
-    public function testBadTypeBool()
+    public function testSearchExceptionBool()
     {
         // Arrange
         $test_item = true;
-        $expected_result = false;
+        $this->setExpectedException('\Exception', 'Attempted to parse a bad data type.');
 
         // Act
-        $test_result = $this->ssp->parse($test_item);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
+        $this->ssp->parse($test_item);
     }
 
     /**
