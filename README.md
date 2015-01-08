@@ -8,13 +8,16 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/league/search-string-parser.svg?style=plastic)](https://packagist.org/packages/league/search-string-parser)
 
 A php based parser that will turn a string into an array of search terms for usage in search logic.
-This software is currently in a beta release: 0.9
+** This software is currently in a beta release: 0.9.3 **
 
 It is to be released on https://packagist.org/.
 
 Items left to look at:
 
-* Finalise reliable project structure for versioned public release 
+* Finish ParserEn implementation - currently under development
+* Testing is no longer valid due to pattern changes - these are being redeveloped
+* Review location of internal functions (possibly move to a separate class)
+* Documentation to be expanded to be more "ELI5" 
 
 This should be PSR-2, PSR-4 compliant, but as it's a beta there may be some problems.
 
@@ -28,13 +31,37 @@ $ composer require league/search-string-parser
 
 ## Usage
 
+Note - this has changed since 0.9.2.
+The application now uses dependency injection. 
+ 
+There are different engines Parsers available. You can easily choose which you want to use. 
+Currently in this Beta version ParserSimple and ParserEn are included.
+
+Instantiate the wrapper using an object of the type of search you want:
+
 ``` php
-// instantiate
-$ssp = new League\Floor9design\SearchStringParser\SearchStringParser();
-// run a full parse
+// Instantiate 
+$ssp = new SearchStringParser(new ParserSimple);
+// run a search: 
 $string = 'some search terms "including literals enclosed in quotes"';
 $array = $ssp->parse($string);
 ```
+
+This will give you the following results set:
+
+``` php
+array(
+    0 => 'including literals enclosed in quotes',
+    1 => 'some',
+    2 => 'search',
+    3 => 'terms'
+);
+```
+
+Spaces are treated as "OR", with literals meaning "This string exactly"
+ 
+* hello world => hello OR world
+* "hello world" => hello AND [ space ] AND world
 
 Your search string can include a combination of the following items: 
 
@@ -47,7 +74,57 @@ Your search string can include a combination of the following items:
 
 These are all parsed internally to form an array ready for you to use as you see fit!
 
-For example - in Zend Framework you may need to set up a set of search terms:
+Here is a more complex example: 
+
+``` php
+// Instantiate 
+$ssp = new SearchStringParser(new ParserSimple);
+// run a search: 
+$complex = array(
+            0 => 'hello world',
+            1 => 'foo',
+            2 => 'bar "literal string"',
+            3 => 3,
+            4 => -19.27
+        );
+$array = $ssp->parse($complex);
+```
+
+This gives the following result:
+``` php
+array(
+    0 => 'literal string',
+    1 => 'hello',
+    2 => 'world',
+    3 => 'foo',
+    4 => 'bar',
+    5 => '3',
+    6 => '-19.27'
+);
+```
+
+You can also change the delimiter:
+
+``` php
+// Instantiate 
+$ssp = new SearchStringParser(new ParserSimple);
+// run a search: 
+$string = 'some "search terms" Pincluding literals enclosed in another letterP';
+$array = $ssp->parse($string);
+```
+
+This will give you the following results set:
+
+``` php
+array(
+    0 => 'including literals enclosed in another letter',
+    1 => 'some',
+    2 => '"search',
+    3 => 'terms"'
+);
+```
+
+A practical use case; In Zend Framework you may need to set up a set of search terms:
  
  ``` php
  // we are in the middle of the code, and the object has already been instantiated as above:
