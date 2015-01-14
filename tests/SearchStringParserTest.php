@@ -33,303 +33,107 @@
  * @see       http://floor9design.com/
  * @since     File available since Release 1.0
  */
-class SearchStringParserTest extends PHPUnit_Framework_TestCase {
+class SearchStringParserTest extends \PHPUnit_Framework_TestCase
+{
 
     /**
-     * Set up object for testing
+     * Set up objects for testing
      */
     function setUp() {
-        $this->ssp = new League\Floor9design\SearchStringParser\SearchStringParser();
+
+        // Create a stub for the SearchStringParser class.
+        $stub = $this->getMockBuilder('League\Floor9design\SearchStringParser\ParserSimple')
+            ->getMock();
+
+        // parse function
+        $stub->expects($this->any())
+            ->method('parse')
+            ->will(
+                $this->returnValue(
+                    array(
+                        0 => 'hello world'
+                    )
+                )
+            );
+
+        // setDelimiter
+        $stub->expects($this->any())
+            ->method('setDelimiter')
+            ->will($this->returnValue('delimiter is set'));
+
+        // getDelimiter
+        $stub->expects($this->any())
+            ->method('getDelimiter')
+            ->will($this->returnValue('delimiter is set'));
+
+        $this->ssp = new League\Floor9design\SearchStringParser\SearchStringParser($stub);
     }
 
     /**
-     * Clear object after use
+     * Tests the dependency injection has worked
      */
-    function tearDown() {
-        unset($this->ssp);
+    public function testDependencyInjection()
+    {
+        // Set it up
+        $injected = new League\Floor9design\SearchStringParser\ParserSimple();
+        $test = new League\Floor9design\SearchStringParser\SearchStringParser($injected);
+
+        // Test
+        $output = $test->getParserImplementation();
+        $this->assertInstanceOf('League\Floor9design\SearchStringParser\ParserSimple', $output);
     }
 
     /**
-     * Tests accessors (gets and sets)
-     * Has to run a parse to call setSearchString.
-     * Does not check parse response.
-     *
-     * covers SearchStringParser::getSearchStrings
-     * covers SearchStringParser::setSearchStrings
+     * Tests the dependency injection has worked
+     * @expects PHPException
      */
-    public function testAccessors()
+    public function testDependencyInjectionBad()
+    {
+        $this->setExpectedException(get_class(new PHPUnit_Framework_Error("", 0, "", 1)));
+        $injected = new \stdClass();
+        new League\Floor9design\SearchStringParser\SearchStringParser($injected);
+    }
+
+    /**
+     * Tests calling the parse function
+     */
+    public function testParse()
     {
         // Arrange
-
-        // Covers get/set string vars
-        $test_string = 'hello';
-        $this->ssp->parse($test_string);
-
-        // covers delimiter
-        $test_delimiter = 'P';
-
-        // Act
-        $result_string = $this->ssp->getSearchStrings();
-
-        $this->ssp->setDelimiter($test_delimiter);
-        $result_delimiter = $this->ssp->getDelimiter();
-
-        // Assert
-        $this->assertEquals($test_string, $result_string);
-        $this->assertEquals($test_delimiter, $result_delimiter);
-    }
-
-    /*
-     * Tests attempting to set a delimiter badly, and checks that a correct exception is thrown.
-     */
-    public function testDelimiterException()
-    {
-        $this->setExpectedException('\Exception', 'Attempted to set a delimiter that was not a string.');
-
-        // invalid data type
-        $test_delimiter = array();
-        $this->ssp->setDelimiter($test_delimiter);
-    }
-
-    /**
-     * Tests parsing a string
-     * Uses a single word
-     */
-    public function testParseStringSingleWord()
-    {
-        // Arrange
-        $test_string = 'hello';
-        $expected_result = array(0 => 'hello');
-
-        // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
-    }
-
-    /**
-     * Tests parsing a string
-     * Uses multiple words
-     */
-    public function testParseStringMultiWord()
-    {
-        // Arrange
-        $test_string = 'hello world';
-        $expected_result = array(
-            0 => 'hello',
-            1 => 'world'
-        );
-
-        // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
-    }
-
-    /**
-     * Tests parsing an array
-     * Uses single words
-     */
-    public function testParseArraySingleWord()
-    {
-        // Arrange
-        $test_string = array(
-            0 => 'hello',
-            1 => 'world'
-        );
-        $expected_result = array(
-            0 => 'hello',
-            1 => 'world'
-        );
-
-        // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
-    }
-
-    /**
-     * Tests parsing an int
-     * Uses a single int
-     */
-    public function testParseIntSingle()
-    {
-        // Arrange
-        $test_string = 3;
-        $expected_result = array(0 => '3');
-
-        // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
-    }
-
-    /**
-     * Tests parsing a set of floats
-     * Uses a single word
-     */
-    public function testParseFloatMulti()
-    {
-        // Arrange
-        $test_string = array(
-            0 => 3.23,
-            1 => -14.23
-        );
-        $expected_result = array(
-            0 => '3.23',
-            1 => '-14.23'
-        );
-
-        // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
-    }
-
-    /**
-     * Tests parsing a literal string
-     * Uses a literal multi-word string
-     */
-    public function testParseStringLiteral()
-    {
-        // Arrange
-        $test_string = '"hello world"';
-        $expected_result = array(
+        $expected = array(
             0 => 'hello world'
         );
 
         // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
+        $output = $this->ssp->parse('hello world');
+        $this->assertEquals($expected, $output);
     }
 
     /**
-     * Tests parsing string with a "
-     * Uses a multi-word string, including a "
+     * Tests calling the getDelimiter method
      */
-    public function testParseStringNotLiteral()
+    public function testGetDelimiter()
     {
         // Arrange
-        $test_string = '"hello world';
-        $expected_result = array(
-            0 => '"hello',
-            1 => 'world'
-        );
+        $expected = 'delimiter is set';
 
         // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
+        $output = $this->ssp->getDelimiter();
+        $this->assertEquals($expected, $output);
     }
 
     /**
-     * Tests a complex string with literals and non literals
+     * Tests calling the setDelimiter method
      */
-    public function testParseStringComplex()
+    public function testSetDelimiter()
     {
         // Arrange
-        $test_string = 'hello "hello world"';
-        $expected_result = array(
-            0 => 'hello world',
-            1 => 'hello'
-        );
+        $expected = 'delimiter is set';
+        $string = 'delimiter is set';
 
         // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
+        $output = $this->ssp->setDelimiter($string);
+        $this->assertEquals($expected, $output);
     }
 
-    /**
-     * Tests a multidimensional array
-     */
-    public function testParseMultiDimensionalArraySingle()
-    {
-        // Arrange
-        $test_string = array(
-            0 => array(
-                'hello world'
-            ),
-            1 => 'foo'
-        );
-        $expected_result = array(
-            0 => 'hello',
-            1 => 'world',
-            2 => 'foo'
-        );
-
-        // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
-    }
-
-    /**
-     * Tests parsing a bad type - object
-     * Uses a stdClass to simulate a bad type
-     */
-    public function testSearchExceptionObject()
-    {
-        // Arrange
-        $test_item = new stdClass();
-        $this->setExpectedException('\Exception', 'Attempted to parse a bad data type.');
-
-        // Act
-        $this->ssp->parse($test_item);
-    }
-
-    /**
-     * Tests parsing a bad type - bool
-     * Uses a bool to simulate a bad type
-     */
-    public function testSearchExceptionBool()
-    {
-        // Arrange
-        $test_item = true;
-        $this->setExpectedException('\Exception', 'Attempted to parse a bad data type.');
-
-        // Act
-        $this->ssp->parse($test_item);
-    }
-
-    /**
-     * Tests a complex array with literals and non literals
-     */
-    public function testParseComplexComplex()
-    {
-        // Arrange
-        $test_string = array(
-            0 => 'hello world',
-            1 => 'foo',
-            2 => 'bar "literal string"',
-            3 => 3,
-            4 => -19.27
-        );
-        $expected_result = array(
-            0 => 'literal string',
-            1 => 'hello',
-            2 => 'world',
-            3 => 'foo',
-            4 => 'bar',
-            5 => '3',
-            6 => '-19.27'
-        );
-
-        // Act
-        $test_result = $this->ssp->parse($test_string);
-
-        // Assert
-        $this->assertEquals($test_result, $expected_result);
-    }
-
-} 
+}

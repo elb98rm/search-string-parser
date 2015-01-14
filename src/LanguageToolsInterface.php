@@ -41,5 +41,4 @@ interface LanguageToolsInterface
 {
     public function parseStems($array);
     public function parseNGram($array);
-
-} 
+}

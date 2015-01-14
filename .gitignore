@@ -3,3 +3,7 @@
 atlassian-ide-plugin.xml
 
 !.gitkeep
+
+# Composer
+composer.phar
+vendor/

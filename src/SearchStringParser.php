@@ -46,6 +46,23 @@ class SearchStringParser
     // Accessors
 
     /**
+     * @param string $delimiter Delimiter to use within the search object.
+     */
+    public function __construct(ParserImplementation $parser_implementation)
+    {
+        $this->setParserImplementation($parser_implementation);
+    }
+
+    /**
+     * get delimiter to use while parsing strings
+     * @return string $this->getParserImplementation()->getDelimiter()
+     */
+    public function getDelimiter()
+    {
+        return $this->getParserImplementation()->getDelimiter();
+    }
+
+    /**
      * get ParserImplementation object
      * @return mixed $this->search_strings
      */
@@ -67,15 +84,6 @@ class SearchStringParser
     }
 
     /**
-     * get delimiter to use while parsing strings
-     * @return string $this->getParserImplementation()->getDelimiter()
-     */
-    public function getDelimiter()
-    {
-        return $this->getParserImplementation()->getDelimiter();
-    }
-
-    /**
      * Set the delimiter to use while parsing strings
      *
      * @param string $delimiter
@@ -83,15 +91,7 @@ class SearchStringParser
      */
     public function setDelimiter($delimiter)
     {
-        $this->getParserImplementation()->setDelimiter($delimiter);
-    }
-
-
-    /**
-     * @param string $delimiter Delimiter to use within the search object.
-     */
-    public function __construct(ParserImplementation $parser_implementation) {
-        $this->setParserImplementation($parser_implementation);
+        return $this->getParserImplementation()->setDelimiter($delimiter);
     }
 
     // Other functions
