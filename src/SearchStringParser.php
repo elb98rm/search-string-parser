@@ -97,7 +97,7 @@ class SearchStringParser
     // Other functions
 
     /**
-     * Runs Parse on the
+     * Runs Parse on the injected class.
      *
      * It is meant as catch all, and will attempt to make the best
      * of the data it is given.
