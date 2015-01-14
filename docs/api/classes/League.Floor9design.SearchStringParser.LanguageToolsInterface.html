@@ -21,54 +21,54 @@
     <script src="../js/jquery.smooth-scroll.js"></script>
     <script src="../js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-    <script type="text/javascript">
-    function loadExternalCodeSnippets() {
-        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-            var src = pre.getAttribute('data-src');
-            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-            var language = 'php';
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
 
-            var code = document.createElement('code');
-            code.className = 'language-' + language;
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
 
-            pre.textContent = '';
+                pre.textContent = '';
 
-            code.textContent = 'Loading…';
+                code.textContent = 'Loading…';
 
-            pre.appendChild(code);
+                pre.appendChild(code);
 
-            var xhr = new XMLHttpRequest();
+                var xhr = new XMLHttpRequest();
 
-            xhr.open('GET', src, true);
+                xhr.open('GET', src, true);
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4) {
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
 
-                    if (xhr.status < 400 && xhr.responseText) {
-                        code.textContent = xhr.responseText;
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
 
-                        Prism.highlightElement(code);
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
                     }
-                    else if (xhr.status >= 400) {
-                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                    }
-                    else {
-                        code.textContent = '✖ Error: File does not exist or is empty';
-                    }
-                }
-            };
+                };
 
-            xhr.send(null);
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
         });
-    }
-
-    $(document).ready(function(){
-        loadExternalCodeSnippets();
-    });
-    $('#source-view').on('shown', function () {
-        loadExternalCodeSnippets();
-    })
-</script>
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
 
     <link rel="shortcut icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1514054620"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1011064393"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1514054620" class="accordion-body collapse in">
+            <div id="namespace-1011064393" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-17071361"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2054427655"></a>
                                 <a href="../namespaces/League.html" style="margin-left: 30px; padding-left: 0">League</a>
             </div>
-            <div id="namespace-17071361" class="accordion-body collapse ">
+            <div id="namespace-2054427655" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1918087552"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-167031568"></a>
                                 <a href="../namespaces/League.Floor9design.html" style="margin-left: 30px; padding-left: 0">Floor9design</a>
             </div>
-            <div id="namespace-1918087552" class="accordion-body collapse ">
+            <div id="namespace-167031568" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-678565784"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-409515564"></a>
                                 <a href="../namespaces/League.Floor9design.SearchStringParser.html" style="margin-left: 30px; padding-left: 0">SearchStringParser</a>
             </div>
-            <div id="namespace-678565784" class="accordion-body collapse ">
+            <div id="namespace-409515564" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -221,135 +221,100 @@
             <div class="row-fluid">
                 <div class="span8 content class">
                     <nav>
-                                                <a href="../namespaces/League.Floor9design.SearchStringParser.html">\League\Floor9design\SearchStringParser</a> <i class="icon-level-up"></i>
+                                                <a href="../namespaces/League.Floor9design.SearchStringParser.html">\League\Floor9design\SearchStringParser</a>
                                             </nav>
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
-                    <h1><small>\League\Floor9design\SearchStringParser</small>SearchStringParser</h1>
-                    <p><em>Class SearchStringParser</em></p>
-                    <p>Provides a set of parsing tools for search items.
-if you create a search feature, searching by string can be a minefield.
-This is a simple tool to help organise this process</p>
-                    
-                                        
+                    <h1><small>\League\Floor9design\SearchStringParser</small>LanguageToolsInterface</h1>
+                    <p><em>Class LanguageToolsInterface</em></p>
+                    <p>Children of SearchStringParser can be used to offer advanced features.
+Stemming. n-grams and other such features require a language specific behaviour.
+This interface allows development of other children to the correct standards.</p>
+
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
-                            <section class="span4">
+                            <section class="span6">
                                 <a href="#methods">Methods</a>
                             </section>
-                            <section class="span4">
-                                <a href="#properties">Properties</a>
-                            </section>
-                            <section class="span4">
+                            <section class="span6">
                                 <a href="#constants">Constants</a>
                             </section>
                         </section>
                         <section class="row-fluid public">
-                            <section class="span4">
-                                                                    <a href="../classes/League.Floor9design.SearchStringParser.SearchStringParser.html#method___construct" class="">__construct()</a><br />
-                                                                    <a href="../classes/League.Floor9design.SearchStringParser.SearchStringParser.html#method_getDelimiter" class="">getDelimiter()</a><br />
-                                                                    <a href="../classes/League.Floor9design.SearchStringParser.SearchStringParser.html#method_getParserImplementation" class="">getParserImplementation()</a><br />
-                                                                    <a href="../classes/League.Floor9design.SearchStringParser.SearchStringParser.html#method_setParserImplementation" class="">setParserImplementation()</a><br />
-                                                                    <a href="../classes/League.Floor9design.SearchStringParser.SearchStringParser.html#method_setDelimiter" class="">setDelimiter()</a><br />
-                                                                    <a href="../classes/League.Floor9design.SearchStringParser.SearchStringParser.html#method_parse" class="">parse()</a><br />
+                            <section class="span6">
+                                                                    <a href="../classes/League.Floor9design.SearchStringParser.LanguageToolsInterface.html#method_parseStems">parseStems()</a><br />
+                                                                    <a href="../classes/League.Floor9design.SearchStringParser.LanguageToolsInterface.html#method_parseNGram">parseNGram()</a><br />
                                                             </section>
-                            <section class="span4">
-                                                                    <em>No public properties found</em>
-                                                            </section>
-                            <section class="span4">
+                            <section class="span6">
                                                                     <em>No constants found</em>
                                                             </section>
                         </section>
                         <section class="row-fluid protected">
-                            <section class="span4">
+                            <section class="span6">
                                                                     <em>No protected methods found</em>
                                                             </section>
-                            <section class="span4">
-                                                                    <em>No protected properties found</em>
-                                                            </section>
-                            <section class="span4">
+                            <section class="span6">
                                 <em>N/A</em>
                             </section>
                         </section>
                         <section class="row-fluid private">
-                            <section class="span4">
+                            <section class="span6">
                                                                     <em>No private methods found</em>
                                                             </section>
-                            <section class="span4">
-                                                                    <a href="../classes/League.Floor9design.SearchStringParser.SearchStringParser.html#property_parser_implementation" class="">$parser_implementation</a><br />
-                                                            </section>
-                            <section class="span4">
+                            <section class="span6">
                                 <em>N/A</em>
                             </section>
                         </section>
                     </section>
                 </div>
                 <aside class="span4 detailsbar">
-                                        
-                    
-                    <dl>
+                                        <dl>
                         <dt>File</dt>
-                            <dd><a href="../files/SearchStringParser.html"><div class="path-wrapper">SearchStringParser.php</div></a></dd>
-                                                <dt>Class hierarchy</dt>
-                            <dd class="hierarchy">
-                                                                                                                                                                    <div class="namespace-wrapper">\League\Floor9design\SearchStringParser\SearchStringParser</div>
+                            <dd>
+                                <a href="../files/LanguageToolsInterface.html"><div class="path-wrapper">LanguageToolsInterface.php</div></a>
                             </dd>
-
-                        
-                        
-                        
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\League\Floor9design\SearchStringParser\</div></dd>
+                                                
                                                                             <dt>See also</dt>
                                                                                     <dd><a href="http://floor9design.com/"><div class="namespace-wrapper">http://floor9design.com/</div></a></dd>
                                                                                                                                         <dd><a href=""><div class="namespace-wrapper"></div></a></dd>
-                                                    
                                                                         </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
                                             <tr>
-                            <th>
-                                category
-                            </th>
+                            <th>category</th>
                             <td>
                                                                     <p>None</p>
                                                             </td>
                         </tr>
                                             <tr>
-                            <th>
-                                author
-                            </th>
+                            <th>author</th>
                             <td>
                                                                     <p>Rick Morice <a href="mailto:rick@floor9design.com">rick@floor9design.com</a></p>
                                                             </td>
                         </tr>
                                             <tr>
-                            <th>
-                                copyright
-                            </th>
+                            <th>copyright</th>
                             <td>
                                                                     <p>floor9design.com</p>
                                                             </td>
                         </tr>
                                             <tr>
-                            <th>
-                                license
-                            </th>
+                            <th>license</th>
                             <td>
                                                                     <p>GPL 3.0 (<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>)</p>
                                                             </td>
                         </tr>
                                             <tr>
-                            <th>
-                                version
-                            </th>
+                            <th>version</th>
                             <td>
                                                                     
                                                             </td>
                         </tr>
                                             <tr>
-                            <th>
-                                since
-                            </th>
+                            <th>since</th>
                             <td>
                                                                     <p>File available since Release 1.0</p>
                                                             </td>
@@ -358,61 +323,29 @@ This is a simple tool to help organise this process</p>
                 </aside>
             </div>
 
-                        
-                                    <a id="properties" name="properties"></a>
-            <div class="row-fluid">
+            
+                        <div class="row-fluid">
                 <div class="span8 content class">
-                    <h2>Properties</h2>
+                    <h2>Methods</h2>
                 </div>
-                <aside class="span4 detailsbar"></aside>
-            </div>
-
-                                                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="property_parser_implementation" name="property_parser_implementation" class="anchor"></a>
-            <article class="property">
-                <h3 class="private ">$parser_implementation</h3>
-                <pre class="signature">$parser_implementation : </pre>
-                <p><em></em></p>
-                
-
-                                <h4>Type</h4>
-                
-                                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                        <dl>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                            
-                                    <a id="methods" name="methods"></a>
-            <div class="row-fluid">
-                <div class="span8 content class"><h2>Methods</h2></div>
                 <aside class="span4 detailsbar"></aside>
             </div>
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <a id="method_parseStems" name="method_parseStems" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">__construct()</h3>
+                <h3 class="public ">parseStems()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">__construct(\League\Floor9design\SearchStringParser\ParserImplementation  <span class="argument">$parser_implementation</span>) </pre>
+                <pre class="signature" style="margin-right: 54px;">parseStems(  <span class="argument">$array</span>) </pre>
                 <p><em></em></p>
                 
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td><a href="../classes/League.Floor9design.SearchStringParser.ParserImplementation.html">\League\Floor9design\SearchStringParser\ParserImplementation</a></td>
-                                <td>$parser_implementation </td>
+                                <td></td>
+                                <td>$array </td>
                                 <td></td>
                             </tr>
                                             </table>
@@ -434,168 +367,25 @@ This is a simple tool to help organise this process</p>
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_getDelimiter" name="method_getDelimiter" class="anchor"></a>
+            <a id="method_parseNGram" name="method_parseNGram" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">getDelimiter()</h3>
+                <h3 class="public ">parseNGram()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getDelimiter() : string</pre>
-                <p><em>get delimiter to use while parsing strings</em></p>
+                <pre class="signature" style="margin-right: 54px;">parseNGram(  <span class="argument">$array</span>) </pre>
+                <p><em></em></p>
                 
-
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; <p>$this->getParserImplementation()->getDelimiter()</p>
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_getParserImplementation" name="method_getParserImplementation" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">getParserImplementation()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getParserImplementation() : mixed</pre>
-                <p><em>get ParserImplementation object</em></p>
-                
-
-                
-                
-                                    <h4>Returns</h4>
-                    mixed
-                                            &mdash; <p>$this->search_strings</p>
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setParserImplementation" name="method_setParserImplementation" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setParserImplementation()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setParserImplementation(\League\Floor9design\SearchStringParser\ParserImplementation  <span class="argument">$parser_implementation</span>) : \League\Floor9design\SearchStringParser\SearchStringParser</pre>
-                <p><em>Set the ParserImplementation object (actually.</em></p>
-                <p>. a child of)</p>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td><a href="../classes/League.Floor9design.SearchStringParser.ParserImplementation.html">\League\Floor9design\SearchStringParser\ParserImplementation</a></td>
-                                <td>$parser_implementation </td>
+                                <td></td>
+                                <td>$array </td>
                                 <td></td>
                             </tr>
                                             </table>
                 
                 
-                                    <h4>Returns</h4>
-                    <a href="../classes/League.Floor9design.SearchStringParser.SearchStringParser.html">\League\Floor9design\SearchStringParser\SearchStringParser</a>
-                                            &mdash; <p>$this</p>
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_setDelimiter" name="method_setDelimiter" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">setDelimiter()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setDelimiter(string  <span class="argument">$delimiter</span>) : \League\Floor9design\SearchStringParser\ParserImplementation</pre>
-                <p><em>Set the delimiter to use while parsing strings</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$delimiter </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    <a href="../classes/League.Floor9design.SearchStringParser.ParserImplementation.html">\League\Floor9design\SearchStringParser\ParserImplementation</a>
-                                            &mdash; <p>$this</p>
-                                    				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_parse" name="method_parse" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">parse()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">parse(mixed  <span class="argument">$mixed</span>) : array</pre>
-                <p><em>Runs Parse on the injected class.</em></p>
-                <p>It is meant as catch all, and will attempt to make the best
-of the data it is given.</p>
-<p>This takes a "mixed", auto switching depending on the context.
-Accepts: string, multi-dimensional array, int, float</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>mixed</td>
-                                <td>$mixed </td>
-                                <td><p>item to parse</p></td>
-                            </tr>
-                                            </table>
-                
-                                    <h4>Throws</h4>
-                    <dl>
-                                                    <dt>\Exception</dt>
-                            <dd><p>Generic exception if there is an issue</p></dd>
-                                                                    </dl>
-                
-                                    <h4>Returns</h4>
-                    array
-                                            &mdash; <p>$return</p>
-                                    				
+                				
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -615,10 +405,10 @@ Accepts: string, multi-dimensional array, int, float</p>
     <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label">SearchStringParser.php</h3>
+            <h3 id="source-view-label">LanguageToolsInterface.php</h3>
         </div>
         <div class="modal-body">
-            <pre data-src="../files/SearchStringParser.php.txt" class="language-php line-numbers"></pre>
+            <pre data-src="../files/LanguageToolsInterface.php.txt" class="language-php"></pre>
         </div>
     </div>
 

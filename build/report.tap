@@ -1,7 +1,22 @@
 TAP version 13
-ok 1 - SearchStringParserTest::testDependencyInjection
-ok 2 - SearchStringParserTest::testDependencyInjectionBad
-ok 3 - SearchStringParserTest::testParse
-ok 4 - SearchStringParserTest::testGetDelimiter
-ok 5 - SearchStringParserTest::testSetDelimiter
-1..5
+ok 1 - ParserImplementationTest::testDelimiterAccessors
+ok 2 - ParserSimpleTest::testAccessors
+ok 3 - ParserSimpleTest::testDelimiterException
+ok 4 - ParserSimpleTest::testParseStringSingleWord
+ok 5 - ParserSimpleTest::testParseStringMultiWord
+ok 6 - ParserSimpleTest::testParseArraySingleWord
+ok 7 - ParserSimpleTest::testParseIntSingle
+ok 8 - ParserSimpleTest::testParseFloatMulti
+ok 9 - ParserSimpleTest::testParseStringLiteral
+ok 10 - ParserSimpleTest::testParseStringNotLiteral
+ok 11 - ParserSimpleTest::testParseStringComplex
+ok 12 - ParserSimpleTest::testParseMultiDimensionalArraySingle
+ok 13 - ParserSimpleTest::testSearchExceptionObject
+ok 14 - ParserSimpleTest::testSearchExceptionBool
+ok 15 - ParserSimpleTest::testParseComplexComplex
+ok 16 - SearchStringParserTest::testDependencyInjection
+ok 17 - SearchStringParserTest::testDependencyInjectionBad
+ok 18 - SearchStringParserTest::testParse
+ok 19 - SearchStringParserTest::testGetDelimiter
+ok 20 - SearchStringParserTest::testSetDelimiter
+1..20
