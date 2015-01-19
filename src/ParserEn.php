@@ -67,13 +67,6 @@ class ParserEn extends ParserImplementation implements LanguageToolsInterface
     );
 
     /**
-     * @var array $suffixes List of suffixes to remove
-     */
-    protected $suffixes = array (
-
-    );
-
-    /**
      * Extends parent parse(), adding in localisation if specified
      *
      * @param mixed $mixed item to parse
@@ -100,7 +93,6 @@ class ParserEn extends ParserImplementation implements LanguageToolsInterface
 
         return $this->getReturnStrings();
     }
-
 
     public function parseStems($array)
     {
@@ -162,8 +154,10 @@ class ParserEn extends ParserImplementation implements LanguageToolsInterface
      * @param string $word Word to process
      * @return string $return R2 stem of the word
      */
-    public function     findR2($word) {
+    public function findR2($word) {
         return $this->findR1($this->findR1($word));
     }
+
+
 
 }

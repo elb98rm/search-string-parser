@@ -363,6 +363,10 @@ class ParserEnTest extends \PHPUnit_Framework_TestCase
 
     // Data providers
 
+    /**
+     * Test array for findR1
+     * @return array
+     */
     public function providerTestFindR1()
     {
         return array(
@@ -375,6 +379,10 @@ class ParserEnTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test array for findR2
+     * @return array
+     */
     public function providerTestFindR2()
     {
         return array(

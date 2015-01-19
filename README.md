@@ -15,8 +15,7 @@ It is to be released on https://packagist.org/.
 Items left to look at:
 
 * Finish ParserEn implementation - currently under development
-* Testing is no longer valid due to pattern changes - these are being redeveloped
-* Review location of internal functions (possibly move to a separate class)
+* Testing has been restored to 100% on files not being redeveloped
 * Documentation to be expanded to be more "ELI5" 
 
 This should be PSR-2, PSR-4 compliant, but as it's a beta there may be some problems.
@@ -141,8 +140,11 @@ frameworks (as well as in raw SQL).
 
 ## Testing
 
+Ensure that you have run composer scripts to generate vendor/autoload.php
+Run the following in command line at the project root:
+
 ``` bash
-$ phpunit --bootstrap src/SearchStringParser.php tests/SearchStringParserTest.php
+$ phpunit --bootstrap vendor/autoload.php tests/
 ```
 
 ## Credits

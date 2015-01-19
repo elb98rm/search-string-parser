@@ -1,22 +1,48 @@
 TAP version 13
-ok 1 - ParserImplementationTest::testDelimiterAccessors
-ok 2 - ParserSimpleTest::testAccessors
-ok 3 - ParserSimpleTest::testDelimiterException
-ok 4 - ParserSimpleTest::testParseStringSingleWord
-ok 5 - ParserSimpleTest::testParseStringMultiWord
-ok 6 - ParserSimpleTest::testParseArraySingleWord
-ok 7 - ParserSimpleTest::testParseIntSingle
-ok 8 - ParserSimpleTest::testParseFloatMulti
-ok 9 - ParserSimpleTest::testParseStringLiteral
-ok 10 - ParserSimpleTest::testParseStringNotLiteral
-ok 11 - ParserSimpleTest::testParseStringComplex
-ok 12 - ParserSimpleTest::testParseMultiDimensionalArraySingle
-ok 13 - ParserSimpleTest::testSearchExceptionObject
-ok 14 - ParserSimpleTest::testSearchExceptionBool
-ok 15 - ParserSimpleTest::testParseComplexComplex
-ok 16 - SearchStringParserTest::testDependencyInjection
-ok 17 - SearchStringParserTest::testDependencyInjectionBad
-ok 18 - SearchStringParserTest::testParse
-ok 19 - SearchStringParserTest::testGetDelimiter
-ok 20 - SearchStringParserTest::testSetDelimiter
-1..20
+ok 1 - ParserEnTest::testAccessors
+ok 2 - ParserEnTest::testDelimiterException
+ok 3 - ParserEnTest::testParseStringSingleWord
+ok 4 - ParserEnTest::testParseStringMultiWord
+ok 5 - ParserEnTest::testParseArraySingleWord
+ok 6 - ParserEnTest::testParseIntSingle
+ok 7 - ParserEnTest::testParseFloatMulti
+ok 8 - ParserEnTest::testParseStringLiteral
+ok 9 - ParserEnTest::testParseStringNotLiteral
+ok 10 - ParserEnTest::testParseStringComplex
+ok 11 - ParserEnTest::testParseMultiDimensionalArraySingle
+ok 12 - ParserEnTest::testSearchExceptionObject
+ok 13 - ParserEnTest::testSearchExceptionBool
+ok 14 - ParserEnTest::testParseComplexComplex
+ok 15 - ParserEnTest::testFindR1 with data set #0 ('beautiful', 'iful')
+ok 16 - ParserEnTest::testFindR1 with data set #1 ('beauty', 'y')
+ok 17 - ParserEnTest::testFindR1 with data set #2 ('beau', '')
+ok 18 - ParserEnTest::testFindR1 with data set #3 ('animadversion', 'imadversion')
+ok 19 - ParserEnTest::testFindR1 with data set #4 ('sprinkled', 'kled')
+ok 20 - ParserEnTest::testFindR1 with data set #5 ('eucharist', 'harist')
+ok 21 - ParserEnTest::testFindR2 with data set #0 ('beautiful', 'ul')
+ok 22 - ParserEnTest::testFindR2 with data set #1 ('beauty', '')
+ok 23 - ParserEnTest::testFindR2 with data set #2 ('beau', '')
+ok 24 - ParserEnTest::testFindR2 with data set #3 ('animadversion', 'adversion')
+ok 25 - ParserEnTest::testFindR2 with data set #4 ('sprinkled', '')
+ok 26 - ParserEnTest::testFindR2 with data set #5 ('eucharist', 'ist')
+ok 27 - ParserImplementationTest::testDelimiterAccessors
+ok 28 - ParserSimpleTest::testAccessors
+ok 29 - ParserSimpleTest::testDelimiterException
+ok 30 - ParserSimpleTest::testParseStringSingleWord
+ok 31 - ParserSimpleTest::testParseStringMultiWord
+ok 32 - ParserSimpleTest::testParseArraySingleWord
+ok 33 - ParserSimpleTest::testParseIntSingle
+ok 34 - ParserSimpleTest::testParseFloatMulti
+ok 35 - ParserSimpleTest::testParseStringLiteral
+ok 36 - ParserSimpleTest::testParseStringNotLiteral
+ok 37 - ParserSimpleTest::testParseStringComplex
+ok 38 - ParserSimpleTest::testParseMultiDimensionalArraySingle
+ok 39 - ParserSimpleTest::testSearchExceptionObject
+ok 40 - ParserSimpleTest::testSearchExceptionBool
+ok 41 - ParserSimpleTest::testParseComplexComplex
+ok 42 - SearchStringParserTest::testDependencyInjection
+ok 43 - SearchStringParserTest::testDependencyInjectionBad
+ok 44 - SearchStringParserTest::testParse
+ok 45 - SearchStringParserTest::testGetDelimiter
+ok 46 - SearchStringParserTest::testSetDelimiter
+1..46

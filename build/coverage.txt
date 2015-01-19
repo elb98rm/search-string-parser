@@ -1,13 +1,15 @@
 
 
 Code Coverage Report:    
-  2015-01-14 15:02:47    
+  2015-01-19 14:44:26    
                          
  Summary:                
   Classes: 75.00% (3/4)  
-  Methods: 85.71% (18/21)
-  Lines:   85.06% (74/87)
+  Methods: 91.30% (21/23)
+  Lines:   97.98% (97/99)
 
+\League\Floor9design\SearchStringParser::ParserEn
+  Methods:  60.00% ( 3/ 5)   Lines:  92.00% ( 23/ 25)
 \League\Floor9design\SearchStringParser::ParserImplementation
   Methods: 100.00% (11/11)   Lines: 100.00% ( 59/ 59)
 \League\Floor9design\SearchStringParser::ParserSimple
