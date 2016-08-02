@@ -2,7 +2,7 @@
 
 [![Latest Version](https://img.shields.io/github/release/elb98rm/search-string-parser.svg?style=plastic)](https://github.com/elb98rm/search-string-parser/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/search-string-parser/master.svg?style=plastic)](https://travis-ci.org/thephpleague/search-string-parser)
+[![Build Status](https://img.shields.io/travis/search-string-parser/master.svg?style=plastic)](https://travis-ci.org/elb98rm/search-string-parser)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/search-string-parser/search-string-parser.svg?style=plastic)](https://scrutinizer-ci.com/g/thephpleague/search-string-parser/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/search-string-parser/search-string-parser.svg?style=plastic)](https://scrutinizer-ci.com/g/thephpleague/search-string-parser)
 [![Total Downloads](https://img.shields.io/packagist/dt/league/search-string-parser.svg?style=plastic)](https://packagist.org/packages/league/search-string-parser)
