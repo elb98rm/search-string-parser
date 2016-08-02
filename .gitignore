@@ -7,3 +7,6 @@ atlassian-ide-plugin.xml
 # Composer
 composer.phar
 vendor/
+
+# ignore php docs
+docs/api/*
