@@ -19,7 +19,7 @@
  *
  */
 
-namespace League\Floor9design\SearchStringParser;
+namespace Floor9design\SearchStringParser;
 
 /**
  * Class SearchStringParser

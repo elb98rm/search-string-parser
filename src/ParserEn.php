@@ -19,7 +19,7 @@
  *
  */
 
-namespace League\Floor9design\SearchStringParser;
+namespace Floor9design\SearchStringParser;
 
 /**
  * Class ParserEn
@@ -29,8 +29,8 @@ namespace League\Floor9design\SearchStringParser;
  * Provides an advanced set of parsing tools for search items that are
  * specific to the "En" language (English general)
  *
- * Follows the Porter2 process (see link below)
- *  *
+ * Follows the Porter2 process
+ *
  * @category  None
  * @package   League\Floor9design\SearchStringParser\
  * @author    Rick Morice <rick@floor9design.com>
@@ -48,23 +48,17 @@ class ParserEn extends ParserImplementation implements LanguageToolsInterface
     /**
      * @var array $vowels
      */
-    protected $vowels = array (
-        "a", "e", "i", "o", "u", "y"
-    );
+    protected $vowels = ["a", "e", "i", "o", "u", "y"];
 
     /**
      * @var array $doubles
      */
-    protected $doubles = array (
-        "bb", "dd", "ff", "gg", "mm", "nn", "pp", "rr", "tt"
-    );
+    protected $doubles = ["bb", "dd", "ff", "gg", "mm", "nn", "pp", "rr", "tt"];
 
     /**
      * @var array $valid_li
      */
-    protected $valid_li = array (
-        'c', 'd', 'e', 'g', 'h', 'k', 'm', 'n', 'r', 't'
-    );
+    protected $valid_li = ['c', 'd', 'e', 'g', 'h', 'k', 'm', 'n', 'r', 't'];
 
     /**
      * Extends parent parse(), adding in localisation if specified
@@ -80,7 +74,7 @@ class ParserEn extends ParserImplementation implements LanguageToolsInterface
     public function parse($mixed)
     {
         $this->setSearchStrings($mixed);
-        $return = array();
+        $return = [];
 
         // Parse $mixed to be string
         $string = $this->validateInput($mixed);

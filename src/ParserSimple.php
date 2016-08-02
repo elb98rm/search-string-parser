@@ -19,7 +19,7 @@
  *
  */
 
-namespace League\Floor9design\SearchStringParser;
+namespace Floor9design\SearchStringParser;
 
 /**
  * Class ParserSimple
@@ -44,7 +44,6 @@ class ParserSimple extends ParserImplementation
      * Implements parent parse()
      *
      * @param mixed $mixed item to parse
-     * @param array $options Array of options for extended searching in children
      * @return array $return
      *
      * @throws \Exception Generic exception if there is an issue
@@ -53,7 +52,7 @@ class ParserSimple extends ParserImplementation
     {
         $this->setSearchStrings($mixed);
 
-        $return = array();
+        $return = [];
 
         // Parse $mixed to be string
         $string = $this->validateInput($mixed);

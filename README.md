@@ -10,7 +10,7 @@
 A php based parser that will turn a string into an array of search terms for usage in search logic.
 ** This software is currently in a beta release: 0.9.3 **
 
-It is to be released on https://packagist.org/.
+It is to be released on [packagist.org](https://packagist.org/).
 
 Items left to look at:
 
@@ -25,13 +25,12 @@ This should be PSR-2, PSR-4 compliant, but as it's a beta there may be some prob
 Via Composer
 
 ``` bash
-$ composer require league/search-string-parser
+composer require league/search-string-parser
 ```
 
 ## Usage
 
 Note - this has changed since 0.9.2.
-The application now uses dependency injection. 
  
 There are different engines Parsers available. You can easily choose which you want to use. 
 Currently in this Beta version ParserSimple and ParserEn are included.
