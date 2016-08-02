@@ -30,8 +30,6 @@ composer require league/search-string-parser
 
 ## Usage
 
-Note - this has changed since 0.9.2.
- 
 There are different engines Parsers available. You can easily choose which you want to use. 
 Currently in this Beta version ParserSimple and ParserEn are included.
 
