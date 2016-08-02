@@ -32,7 +32,7 @@ namespace Floor9design\SearchStringParser;
  * Follows the Porter2 process
  *
  * @category  None
- * @package   League\Floor9design\SearchStringParser\
+ * @package   Floor9design\SearchStringParser;
  * @author    Rick Morice <rick@floor9design.com>
  * @copyright floor9design.com
  * @license   GPL 3.0 (http://www.gnu.org/copyleft/gpl.html)

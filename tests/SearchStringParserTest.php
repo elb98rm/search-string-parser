@@ -24,7 +24,7 @@
  * Provides a set of testing tools for the SearchStringParser class.
  *
  * @category  None
- * @package   League\Floor9design\SearchStringParser\
+ * @package   Floor9design\SearchStringParser;
  * @author    Rick Morice <rick@floor9design.com>
  * @copyright floor9design.com
  * @license   GPL 3.0 (http://www.gnu.org/copyleft/gpl.html)
@@ -42,7 +42,7 @@ class SearchStringParserTest extends \PHPUnit_Framework_TestCase
     function setUp() {
 
         // Create a stub for the SearchStringParser class.
-        $stub = $this->getMockBuilder('League\Floor9design\SearchStringParser\ParserSimple')
+        $stub = $this->getMockBuilder('Floor9design\SearchStringParser;ParserSimple')
             ->getMock();
 
         // parse function
@@ -66,7 +66,8 @@ class SearchStringParserTest extends \PHPUnit_Framework_TestCase
             ->method('getDelimiter')
             ->will($this->returnValue('delimiter is set'));
 
-        $this->ssp = new League\Floor9design\SearchStringParser\SearchStringParser($stub);
+        $this->ssp = new Floor9design\SearchStringParser;
+        SearchStringParser($stub);
     }
 
     /**
@@ -75,12 +76,14 @@ class SearchStringParserTest extends \PHPUnit_Framework_TestCase
     public function testDependencyInjection()
     {
         // Set it up
-        $injected = new League\Floor9design\SearchStringParser\ParserSimple();
-        $test = new League\Floor9design\SearchStringParser\SearchStringParser($injected);
+        $injected = new Floor9design\SearchStringParser;
+        ParserSimple();
+        $test = new Floor9design\SearchStringParser;
+        SearchStringParser($injected);
 
         // Test
         $output = $test->getParserImplementation();
-        $this->assertInstanceOf('League\Floor9design\SearchStringParser\ParserSimple', $output);
+        $this->assertInstanceOf('Floor9design\SearchStringParser;ParserSimple', $output);
     }
 
     /**
@@ -91,7 +94,8 @@ class SearchStringParserTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException(get_class(new PHPUnit_Framework_Error("", 0, "", 1)));
         $injected = new \stdClass();
-        new League\Floor9design\SearchStringParser\SearchStringParser($injected);
+        new Floor9design\SearchStringParser;
+        SearchStringParser($injected);
     }
 
     /**

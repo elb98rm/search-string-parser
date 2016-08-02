@@ -26,7 +26,7 @@
  * However, these are caught with child classes tests, so this should still offer 100% project testing.
  *
  * @category  None
- * @package   League\Floor9design\SearchStringParser\
+ * @package   Floor9design\SearchStringParser;
  * @author    Rick Morice <rick@floor9design.com>
  * @copyright floor9design.com
  * @license   GPL 3.0 (http://www.gnu.org/copyleft/gpl.html)
@@ -42,7 +42,7 @@ class ParserImplementationTest extends \PHPUnit_Framework_TestCase
      * Set up objects for testing
      */
     function setUp() {
-        $this->pi = $this->getMockForAbstractClass('League\Floor9design\SearchStringParser\ParserImplementation');
+        $this->pi = $this->getMockForAbstractClass('Floor9design\SearchStringParser;ParserImplementation');
     }
 
     /**

@@ -24,7 +24,7 @@
  * Provides a set of testing tools for the ParserSimple class.
  *
  * @category  None
- * @package   League\Floor9design\SearchStringParser\
+ * @package   Floor9design\SearchStringParser;
  * @author    Rick Morice <rick@floor9design.com>
  * @copyright floor9design.com
  * @license   GPL 3.0 (http://www.gnu.org/copyleft/gpl.html)
@@ -42,7 +42,8 @@ class ParserSimpleTest extends \PHPUnit_Framework_TestCase
     function setUp() {
 
         // Create a stub for the SearchStringParser class.
-        $this->ps = new League\Floor9design\SearchStringParser\ParserSimple;
+        $this->ps = new Floor9design\SearchStringParser;
+        ParserSimple;
     }
 
     /**
